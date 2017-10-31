@@ -8,7 +8,6 @@ class posts extends Model
 {
     protected $fillable = [
     	'author_id',
-      	'title',
       	'content',
       	'posted_at'
    	];
