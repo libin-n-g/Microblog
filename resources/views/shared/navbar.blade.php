@@ -21,7 +21,9 @@
             <ul class="nav navbar-nav">
                 &nbsp;
             </ul>
-
+            <ul class="nav navbar-nav navbar-middle">
+                    {{-- @include('search.search')                --}}
+            </ul>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
