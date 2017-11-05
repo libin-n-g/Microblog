@@ -20,5 +20,6 @@ Route::group(['middleware' => 'auth'], function()
 	Route::resource('posts', 'PostsController', ['only' => ['create', 'store', 'show']]);
 	Route::post('/search', 'UserController@search')->name('searchresult');
 	Route::get('/users/{user}/follow', 'UserController@follow')->name('user.follow');
+	Route::get('/users/{user}/unfollow', 'UserController@unfollow')->name('user.unfollow');
 });
 	

@@ -38,6 +38,10 @@ class User extends Authenticatable
     {
         return $this->id !== $user->id;
     }
+    public function canUnfollow(User $user)
+    {
+        return $this->isFollowing($user);
+    }
     public function canFollow(User $user)
     {
         if (!$this->isNotSame($user)) {
