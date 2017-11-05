@@ -1,4 +1,4 @@
-@each('search/_show', $users, 'user')
+@each('users/_show', $users, 'user')
  
  <div class="text-center">
      {{ $users->links() }}

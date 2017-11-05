@@ -1,8 +1,8 @@
 <div class="panel panel-info">
      <div class="panel-heading">
-         <span>{{ ($user->name) }}</span>
+         <span><a href="/users/{{$user->name}}">{{ ($user->name) }}</a></span>
      </div>
      <div class="panel-body">
-         {{ $user->email }}
+        <b>Email : </b>  {{ $user->email }}
      </div>
  </div>

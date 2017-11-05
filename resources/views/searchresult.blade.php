@@ -7,12 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Search Results</div>
                 <div class="panel-body">					
-                     @include ('search/_list')
+                     @include ('users/_list')
                 </div>
             </div>
         </div>
         <div class="col-8-md-12 col-md-offset-1">
-        @include('search/search')
+        @include('users/search')
         </div>
     </div>
 </div>

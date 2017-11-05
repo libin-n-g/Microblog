@@ -1,0 +1,25 @@
+@extends('layouts.app')
+ 
+ @section('content')
+   <div class="row">
+       <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+     			<div class="panel-heading">
+         			<span><a href="/users/{{$user->name}}">{{ ($user->name) }}</a></span>
+     			</div>
+     			<div class="panel-body">
+     				@if (Auth::guest() || Auth::user()->isNot($user))
+     					@if ((!(Auth::guest())) || Auth::user()->isFollowing($user))
+     						<div><a href="{{route('user.follow', $user)}}">UnFollow</a></div>	
+     					@else
+     						<div><a href="Follow">Follow</a></div>
+     					@endif
+     				@endif
+        			<b>Email : </b>  {{ $user->email }}
+
+        			
+     			</div>
+ 			</div>
+       </div>
+   </div>
+ @endsection
