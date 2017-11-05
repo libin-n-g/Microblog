@@ -9,11 +9,15 @@
      			</div>
      			<div class="panel-body">
      				@if (Auth::guest() || Auth::user()->isNot($user))
-     					@if ((!(Auth::guest())) || Auth::user()->isFollowing($user))
-     						<div><a href="{{route('user.follow', $user)}}">UnFollow</a></div>	
+     					@if (Auth::guest())
+     					    <div><a href="Follow">Follow</a></div>
      					@else
-     						<div><a href="Follow">Follow</a></div>
-     					@endif
+     						@if (Auth::user()->isFollowing($user))
+     							<div><a href="{{route('user.follow', $user)}}">UnFollow</a></div>	
+     						@else
+     							<div><a href="{{route('user.follow', $user)}}">Follow</a></div>
+     						@endif
+     					@endif 
      				@endif
         			<b>Email : </b>  {{ $user->email }}
 

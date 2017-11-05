@@ -1,4 +1,3 @@
-
 {!! Form::open(['url' => '/search', 'method' => 'post'])  !!}
  
 <div class="input-group custom-search-form" >

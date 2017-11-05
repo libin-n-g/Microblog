@@ -11,7 +11,7 @@
 |
 */
 
-
+Route::get('/users/{name}', 'UserController@showuser')->name('userpage');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function()
@@ -19,4 +19,6 @@ Route::group(['middleware' => 'auth'], function()
 	Route::get('/', 'PostsController@index')->name('home');
 	Route::resource('posts', 'PostsController', ['only' => ['create', 'store', 'show']]);
 	Route::post('/search', 'UserController@search')->name('searchresult');
+	Route::get('/users/{user}/follow', 'UserController@follow')->name('user.follow');
 });
+	
