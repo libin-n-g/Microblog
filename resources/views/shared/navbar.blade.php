@@ -37,9 +37,9 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li>
+                {{--             <li>
                                 <a href="{{ route('posts.create') }}">{{ trans('posts.add_article') }}</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();

@@ -11,11 +11,6 @@ class UserController extends Controller
    		$foundusers = User::where('name', 'like', '%' . ($request->name) . '%')->paginate(20);
     	return view('searchresult')->withUsers($foundusers);
     }
-    public function index()
-    {
-        $users = User::orderBy('id', 'desc')->paginate(20);
-        return view('searchresult')->withUsers($users);
-    }
     public function showuser($name)
     {
       $user = User::where('name', 'like', ($name))->first();

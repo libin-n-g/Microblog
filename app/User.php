@@ -53,4 +53,17 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\User', 'follows', 'user_id', 'follower_id');
     }
+    public function likes()
+    {
+        return $this->belongsToMany('App\User', 'Like', 'user_id');
+    }
+    public function Suggesions()
+    {
+
+        $foll = $this->following()->pluck('users.id')->map(function ($item, $key) {
+          return User::find($item)->following()->pluck('users.id');
+        });
+        $users = User::find($foll->collapse()->diff($this->following()->pluck('users.id')))->diff([$this]);  
+        return $users;
+    }
 }

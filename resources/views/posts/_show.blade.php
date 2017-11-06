@@ -4,6 +4,7 @@
          <time class="pull-right">{{ $post->posted_at->format('d F Y, H:i') }}</time>
      </div>
      <div class="panel-body">
-         {{ $post->content }}
+     	<div>{{ $post->content }}</div>
+        <a href="#">Like</a>
      </div>
  </div>

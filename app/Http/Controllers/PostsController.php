@@ -15,14 +15,24 @@ class PostsController extends Controller
         $posts = posts::orderBy('posted_at', 'desc')->paginate(20);
         return view('home')->withposts($posts);
     }
+    public function indexper(Request $request)
+    {
+        $allposts = posts::whereIn(
+          'author_id',
+          $request->user()->following()->pluck('users.id')->push($request->user()->id)
+        );
+        $posts = $allposts->orderBy('posted_at', 'desc')->paginate(20);
+        $users = $request->user()->suggesions()->take(10);
+        return view('home', compact('users', 'posts'));
+    }
     public function show(Request $request, posts $post)
     {
       return view('posts.show')->withPost($post);
     }
-    public function create(Request $request)
-    {
-      return view('posts.create');
-    }
+    // public function create(Request $request)
+    // {
+    //   return view('posts.create');
+    // }
     public function store(PostRequest $request)
     {
       $user = Auth::user();
@@ -31,6 +41,7 @@ class PostsController extends Controller
           'content' => $request->input('content')
       ]);
   
-      return redirect()->route('posts.show', $post)->with('success', "Posting is Sucessfull");
+      return redirect()->back()->with('success', "Posting is Successful");
     }
+
 }

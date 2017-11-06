@@ -19,9 +19,7 @@
      						@endif
      					@endif 
      				@endif
-        			<b>Email : </b>  {{ $user->email }}
-
-        			
+        			<b>Email : </b>  {{ $user->email }}	
      			</div>
  			</div>
        </div>
