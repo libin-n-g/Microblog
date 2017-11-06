@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Like;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -55,7 +55,14 @@ class User extends Authenticatable
     }
     public function likes()
     {
-        return $this->belongsToMany('App\User', 'Like', 'user_id');
+        return $this->belongsToMany('App\User', 'likes', 'user_id');
+    }
+    public function isLiked(posts $post)
+    {
+        $flag = Like::where('user_id', '=', $this->id)
+                ->where('post_id', '=', $post->id)->count();
+
+        return (bool) $flag;
     }
     public function Suggesions()
     {

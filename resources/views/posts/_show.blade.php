@@ -5,6 +5,20 @@
      </div>
      <div class="panel-body">
      	<div>{{ $post->content }}</div>
-        <a href="#">Like</a>
+     						@if (Auth::user()->isLiked($post))
+
+        {!! Form::open(['route' => 'unlike', 'method' => 'post']) !!}
+        {!! Form::hidden('post', $post) !!}
+        {!! Form::submit("Unlike", ['class' => 'btn btn-primary pull-right']) !!}
+        {!! Form::close() !!}
+     							
+     						@else
+
+        {!! Form::open(['route' => 'like', 'method' => 'post']) !!}
+        {!! Form::hidden('post', $post) !!}
+        {!! Form::submit("Like", ['class' => 'btn btn-primary pull-right']) !!}
+        {!! Form::close() !!}
+     							
+     						@endif
      </div>
  </div>
