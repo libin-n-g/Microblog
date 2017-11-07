@@ -5,6 +5,7 @@
      </div>
      <div class="panel-body">
      	<div>{{ $post->content }}</div>
+        @if (Auth::user()->id!=$post->author->id && Auth::user()->id!=$post->owner->id)
      						@if (Auth::user()->isLiked($post))
 
         {!! Form::open(['route' => 'unlike', 'method' => 'post']) !!}
@@ -20,5 +21,7 @@
         {!! Form::close() !!}
      							
      						@endif
+
+        @endif
      </div>
  </div>
