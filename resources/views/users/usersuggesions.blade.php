@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-	<div class="panel-heading text-center">Suggessions</div>
+	<div class="panel-heading text-center">Suggestion</div>
 	<div class="panel-body">					
 		@foreach ($users as $user)
 			<div class="text-center">
