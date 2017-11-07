@@ -16,17 +16,23 @@ class LikeController extends Controller
   		$post = json_decode($request->input('post'));
   		//dd($post);
       	// $like = $user->likes()->attach($user->id, ['post_id' => $post->id]);
+      	$count = $post->likecount + 1;
+      	posts::where('id', $post->id)->update(['likecount' => $count]);
       	$liked = $like->create([
           'user_id' => $user->id,
           'post_id' => $post->id
+
       ]);
       	//dd($liked);
       	return redirect()->back();
     }
     public function unLikePost(Request $request)
     {
+
     	$user = Auth::user();
   		$post = json_decode($request->input('post'));
+  		$count = $post->likecount - 1;
+      	posts::where('id', $post->id)->update(['likecount' => $count]);
       	$report = Like::where('user_id', '=', $user->id)
                 ->where('post_id', '=', $post->id)
                 ->delete();

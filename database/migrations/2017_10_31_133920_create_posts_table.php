@@ -21,6 +21,8 @@ class CreatePostsTable extends Migration
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('content');
             $table->datetime('posted_at');
+            $table->integer('likecount')->unsigned()->default(0);
+            $table->integer('tweetcount')->unsigned()->default(0);
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: #88d317">Dashboard
 
+
                 </div>
                 <div class="panel-body">					
                      @include ('posts/_list')
