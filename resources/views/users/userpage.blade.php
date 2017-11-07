@@ -4,8 +4,8 @@
    <div class="row">
        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-info">
-     			<div class="panel-heading">
-         			<span><a href="/users/{{$user->name}}">{{ ($user->name) }}</a></span>
+     			<div class="panel-heading" style="background-color: #01abaa">
+         			<span><a href="/users/{{$user->name}}" style="color: #fff">{{ ($user->name) }}</a></span>
      			</div>
      			<div class="panel-body">
      				@if (Auth::guest() || Auth::user()->isNot($user))
