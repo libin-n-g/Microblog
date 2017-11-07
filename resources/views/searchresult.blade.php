@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Search Results</div>
+                <div class="panel-heading" style="background-color: #88d317">Search Results</div>
                 <div class="panel-body">					
                      @include ('users/_list')
                 </div>

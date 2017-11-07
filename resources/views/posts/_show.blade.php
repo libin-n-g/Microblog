@@ -1,10 +1,11 @@
 <div class="panel panel-info">
-     <div class="panel-heading">
-         <span><a href="/users/{{$post->owner->name}}">{{ ($post->owner->name) }} 
+
+     <div class="panel-heading" style="background-color: #01abaa">
+         <span><a href="/users/{{$post->owner->name}}" style="color: #fff">{{ ($post->owner->name) }} 
          @if($post->owner->id!=$post->author->id) 
-         	{{"retweeted by "}}{{$post->author->name}} 
+         {{"retweeted by "}}{{$post->author->name}} 
          @endif
-     </a></span>
+         </a></span>
          <time class="pull-right">{{ $post->posted_at->format('d F Y, H:i') }}</time>
      	</div>
      	<div class="panel-body">

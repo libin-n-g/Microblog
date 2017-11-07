@@ -13,7 +13,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #ccd">
+
     <div id="app" >
         @include('shared/navbar')
                 <div class="container">
