@@ -1,6 +1,6 @@
 <div class="panel panel-info">
      <div class="panel-heading">
-         <span><a href="/users/{{$post->author->name}}">{{ ($post->author->name) }}</a></span>
+         <span><a href="/users/{{$post->owner->name}}">{{ ($post->owner->name) }} @if($post->owner->id!=$post->author->id) {{"retweeted by "}}{{$post->author->name}} @endif</a></span>
          <time class="pull-right">{{ $post->posted_at->format('d F Y, H:i') }}</time>
      </div>
      <div class="panel-body">
@@ -14,7 +14,7 @@
      							
      						@else
 
-        {!! Form::open(['route' => 'like', 'method' => 'post']) !!}
+        {!! Form::open(['route' => 'retweet', 'method' => 'post']) !!}
         {!! Form::hidden('post', $post) !!}
         {!! Form::submit("Like", ['class' => 'btn btn-primary pull-right']) !!}
         {!! Form::close() !!}

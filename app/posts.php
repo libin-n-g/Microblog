@@ -8,6 +8,7 @@ class posts extends Model
 {
     protected $fillable = [
     	'author_id',
+      'owner_id',
       	'content',
       	'posted_at'
    	];
@@ -15,6 +16,10 @@ class posts extends Model
    	public function author()
     {
       return $this->belongsTo('App\User', 'author_id');
+    }
+    public function owner()
+    {
+      return $this->belongsTo('App\User', 'owner_id');
     }
     public function likes()
     {
