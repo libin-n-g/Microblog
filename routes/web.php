@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth'], function()
 	Route::get('/users/{user}/follow', 'UserController@follow')->name('user.follow');
 	Route::get('/users/{user}/unfollow', 'UserController@unfollow')->name('user.unfollow');
 	Route::post('/like', 'LikeController@likePost')->name('like');
+	Route::post('/retweet', 'PostsController@retweet')->name('retweet');
 	Route::post('/unlike', 'LikeController@unLikePost')->name('unlike');
 });
 	
