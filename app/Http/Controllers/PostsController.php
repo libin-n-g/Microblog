@@ -45,16 +45,15 @@ class PostsController extends Controller
       return redirect()->back()->with('success', "Posting is Successful");
     }
 
-    public function retweet(PostRequest $request)
+    public function retweet(Request $request)
     {
       $user = Auth::user();
       $post = json_decode($request->input('post'));
-      $retw = new posts;
-      $retw -> author_id=$user->id;
-      $retw -> owner_id=$post->owner_id;
-      $retw -> content=$post->content;
-      $retw -> posted_at=$post->posted_at;
-      $retw -> save();
+      $post = $user->posts()->create([
+          'owner_id'=> $post->owner_id,
+          'content' => $post->content,
+          'posted_at' => $post->posted_at
+      ]);
       return redirect()->back()->with('success', "Posting is Successful");
     }
 
