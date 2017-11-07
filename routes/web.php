@@ -24,5 +24,6 @@ Route::group(['middleware' => 'auth'], function()
 	Route::post('/like', 'LikeController@likePost')->name('like');
 	Route::post('/retweet', 'PostsController@retweet')->name('retweet');
 	Route::post('/unlike', 'LikeController@unLikePost')->name('unlike');
+	Route::post('/retweet', 'PostsController@retweet')->name('retweet');
 });
 	

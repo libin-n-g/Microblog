@@ -15,7 +15,7 @@
         <div class="col-md-8 ">
             @include('posts/create')
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard
+                <div class="panel-heading" style="background-color: #99f">Dashboard
 
                 </div>
                 <div class="panel-body">					

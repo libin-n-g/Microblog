@@ -1,5 +1,5 @@
-<div class="panel panel-default">
-    <div class="panel-heading">Add Post</div>
+<div class="panel panel-default " >
+    <div class="panel-heading" style="background-color: #99f">Add Post</div>
     <div class="panel-body">
         {!! Form::open(['route' => 'posts.store', 'method' => 'post']) !!}
             <div class="form-group">
